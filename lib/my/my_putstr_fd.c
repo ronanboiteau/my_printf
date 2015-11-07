@@ -5,12 +5,12 @@
 ** Login   <boitea_r@epitech.net>
 ** 
 ** Started on  Sun Oct 11 00:52:56 2015 Ronan Boiteau
-** Last update Thu Nov  5 12:19:55 2015 Ronan Boiteau
+** Last update Sat Nov  7 15:03:29 2015 Ronan Boiteau
 */
 
 #include "my.h"
 
-int	my_putstr_fd(int fd, char *str)
+unsigned int	my_putstr_fd(int fd, const char *str)
 {
   write(fd, str, my_strlen(str));
   return (my_strlen(str));

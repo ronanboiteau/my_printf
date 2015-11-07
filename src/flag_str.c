@@ -5,7 +5,7 @@
 ** Login   <boitea_r@epitech.net>
 ** 
 ** Started on  Sat Nov  7 04:20:05 2015 Ronan Boiteau
-** Last update Sat Nov  7 04:24:40 2015 Ronan Boiteau
+** Last update Sat Nov  7 15:02:37 2015 Ronan Boiteau
 */
 
 #include "my.h"
@@ -16,7 +16,7 @@ unsigned int	_print_str(unsigned int printed, ...)
   va_list	ap;
 
   va_start(ap, printed);
-  printed += my_putstr(va_arg(ap, char *));
+  printed += my_putstr(va_arg(ap, const char *));
   va_end(ap);
   return (printed);
 }

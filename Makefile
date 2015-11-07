@@ -5,7 +5,7 @@
 ## Login   <boitea_r@epitech.net>
 ## 
 ## Started on  Tue Nov  3 16:47:00 2015 Ronan Boiteau
-## Last update Sat Nov  7 04:24:17 2015 Ronan Boiteau
+## Last update Sat Nov  7 15:02:48 2015 Ronan Boiteau
 ##
 
 NAME	= my_printf
@@ -17,11 +17,13 @@ LNAME	= my
 LDIR	= lib/my
 
 CC	= gcc
-CFLAGS	+= -Wall -Werror -Wextra -ansi -I $(IDIR)
+CFLAGS	+= -I $(IDIR)
 
 SDIR	= src/
-SRCS	= $(SDIR)flag_int.c			\
+SRCS	= $(SDIR)flag_char.c			\
+	  $(SDIR)flag_int.c			\
 	  $(SDIR)flag_str.c			\
+	  $(SDIR)flag_uint.c			\
 	  $(SDIR)main.c
 
 OBJS	= $(SRCS:.c=.o)

@@ -5,12 +5,12 @@
 ** Login   <boitea_r@epitech.net>
 ** 
 ** Started on  Mon Oct  5 02:49:33 2015 Ronan Boiteau
-** Last update Sun Oct 18 17:02:17 2015 Ronan Boiteau
+** Last update Sat Nov  7 15:04:28 2015 Ronan Boiteau
 */
 
-int	my_strlen(char *str)
+unsigned int	my_strlen(const char *str)
 {
-  int index;
+  unsigned int index;
 
   index = 0;
   while (str[index] != '\0')

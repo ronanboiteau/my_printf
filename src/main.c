@@ -5,12 +5,12 @@
 ** Login   <boitea_r@epitech.net>
 ** 
 ** Started on  Mon Nov  2 14:21:07 2015 Ronan Boiteau
-** Last update Sat Nov  7 04:26:33 2015 Ronan Boiteau
+** Last update Sat Nov  7 15:07:51 2015 Ronan Boiteau
 */
 
 #include "my.h"
 #include "my_printf.h"
-#include <stdio.h>
+#include <stdio.h> /* REMOVE THAT SHIT!!!! */
 
 unsigned int	_find_flag(t_string *str, unsigned int printed)
 {
@@ -28,13 +28,18 @@ void		_init_structures(t_fct_tab *fct, t_string *str, char *string)
 {
   str->str = string;
   str->idx = 0;
-  fct->flags = my_strdup("bdiSs");
+  fct->flags = my_strdup("csSidbuxXo");
   fct->idx = 0;
-  fct->fct_tab[0] = &_binary_base;
-  fct->fct_tab[1] = &_print_int;
-  fct->fct_tab[2] = &_print_int;
-  fct->fct_tab[3] = &_print_str;
-  fct->fct_tab[4] = &_str_non_printable;
+  fct->fct_tab[0] = &_print_char;
+  fct->fct_tab[1] = &_print_str;
+  fct->fct_tab[2] = &_str_non_printable;
+  fct->fct_tab[3] = &_print_int;
+  fct->fct_tab[4] = &_print_int;
+  fct->fct_tab[5] = &_convert_binary;
+  fct->fct_tab[6] = &_convert_decimal;
+  fct->fct_tab[7] = &_convert_hex_lowcase;
+  fct->fct_tab[8] = &_convert_hex_upcase;
+  fct->fct_tab[9] = &_convert_octal;
   return ;
 }
 
@@ -93,8 +98,8 @@ int		main(void)
 
   i_printed = 0;
   he_printed = 0;
-  i_printed = my_printf("%b foo %F %s %S / %i in binary: %b\n", 42, "bar", "baz", 45, 45);
-  /* he_printed = printf("%s bar \n", "foo", 42); */
+  i_printed = my_printf("[%u] foo %Y %c   '%s' [%s] / \"%u\" in hex: %X\n", 87, -4900, "bar", "baz", 0xBB9ACA00, 3147483648);
+  he_printed = printf("[%u] foo %Y %c   '%s' [%s] / \"%u\" in hex: %X\n", 87, -4900, "bar", "baz", 0xBB9ACA00, 3147483648);
   my_putstr("my_printf: ");
   my_put_nbr(i_printed);
   my_putstr("\nprintf:    ");

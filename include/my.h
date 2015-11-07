@@ -5,7 +5,7 @@
 ** Login   <boitea_r@epitech.net>
 ** 
 ** Started on  Thu Oct  8 10:33:26 2015 Ronan Boiteau
-** Last update Thu Nov  5 20:48:08 2015 Ronan Boiteau
+** Last update Sat Nov  7 15:04:41 2015 Ronan Boiteau
 */
 
 #ifndef MY_H_
@@ -27,13 +27,13 @@ void		my_isneg(int);
 int		my_max_int_tab(int *, int);
 int		my_min_int_tab(int *, int);
 int		my_power_rec(int, int);
-int		my_put_nbr(int);
-int		my_put_nbr_fd(int, int);
-int		my_putchar(char);
-int		my_putchar_fd(int, char);
-int		my_putnbr_base(int, char *);
-int		my_putstr(char *);
-int		my_putstr_fd(int, char *);
+unsigned int	my_put_nbr(int);
+unsigned int	my_put_nbr_fd(int, int);
+unsigned int	my_putchar(char);
+unsigned int	my_putchar_fd(int, char);
+unsigned int	my_putnbr_base(unsigned int, char *);
+unsigned int	my_putstr(const char *);
+unsigned int	my_putstr_fd(int, const char *);
 char		*my_revstr(char *);
 int		my_showstr(char *);
 void		my_sort_int_tab(int *, int);
@@ -48,7 +48,7 @@ char		*my_strcat(char *, char *);
 int		my_strcmp(char *, char *);
 char		*my_strcpy(char *, char *);
 char		*my_strdup(char *);
-int		my_strlen(char *);
+int		my_strlen(const char *);
 char		*my_strlowcase(char *);
 char		*my_strncat(char *, char *, int);
 int		my_strncmp(char *, char *, int);

@@ -5,14 +5,14 @@
 ** Login   <boitea_r@epitech.net>
 ** 
 ** Started on  Sun Oct 11 00:50:12 2015 Ronan Boiteau
-** Last update Thu Nov  5 20:49:51 2015 Ronan Boiteau
+** Last update Sat Nov  7 14:46:42 2015 Ronan Boiteau
 */
 
 #include "my.h"
 
-int	my_put_nbr_fd(int fd, int nbr)
+unsigned int	my_put_nbr_fd(int fd, int nbr)
 {
-  int	printed;
+  unsigned int	printed;
 
   printed = 0;
   if (nbr == -2147483648)

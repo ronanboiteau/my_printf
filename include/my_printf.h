@@ -5,7 +5,7 @@
 ** Login   <boitea_r@epitech.net>
 ** 
 ** Started on  Wed Nov  4 14:00:37 2015 Ronan Boiteau
-** Last update Sat Nov  7 04:23:24 2015 Ronan Boiteau
+** Last update Sat Nov  7 15:06:42 2015 Ronan Boiteau
 */
 
 #ifndef MY_PRINTF_
@@ -13,7 +13,7 @@
 
 # include <stdarg.h>
 
-# define FLAGS_NBR (5)
+# define FLAGS_NBR (10)
 
 typedef struct	s_fct_tab
 {
@@ -28,9 +28,14 @@ typedef struct	s_string
   unsigned int	idx;
 }		t_string;
 
-unsigned int	_binary_base(unsigned int printed, ...);
-unsigned int	_print_int(unsigned int printed, ...);
+unsigned int	_print_char(unsigned int printed, ...);
 unsigned int	_print_str(unsigned int printed, ...);
 unsigned int	_str_non_printable(unsigned int printed, ...);
+unsigned int	_print_int(unsigned int printed, ...);
+unsigned int	_convert_binary(unsigned int printed, ...);
+unsigned int	_convert_decimal(unsigned int printed, ...);
+unsigned int	_convert_hex_lowcase(unsigned int printed, ...);
+unsigned int	_convert_hex_upcase(unsigned int printed, ...);
+unsigned int	_convert_octal(unsigned int printed, ...);
 
 #endif /* !MY_PRINTF_ */
