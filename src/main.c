@@ -5,30 +5,41 @@
 ** Login   <boitea_r@epitech.net>
 ** 
 ** Started on  Mon Nov  2 14:21:07 2015 Ronan Boiteau
-** Last update Sat Nov  7 15:07:51 2015 Ronan Boiteau
+** Last update Sat Nov  7 19:24:42 2015 Ronan Boiteau
 */
 
 #include "my.h"
+#include "my_macro.h"
 #include "my_printf.h"
 #include <stdio.h> /* REMOVE THAT SHIT!!!! */
 
-unsigned int	_find_flag(t_string *str, unsigned int printed)
+int		_char_isletter(char letter)
 {
-  if (!my_char_isalpha(str->str[str->idx + 1])
+  if ((letter >= 'a' && letter <= 'z') || (letter >= 'A' && letter <= 'Z'))
+    return (TRUE);
+  return (FALSE);
+}
+
+char		*_find_flag(t_string *str)
+{
+  char		*specifiers;
+
+  specifiers = NULL;
+  if (!_char_isletter(str->str[str->idx + 1])
       && str->str[str->idx + 1] != '%')
     {
-      printed += my_putchar(' ');
-      while (!my_char_isalpha(str->str[str->idx + 1]))
+      specifiers = str->str + str->idx + 1;
+      while (!_char_isletter(str->str[str->idx + 1]))
 	str->idx += 1;
     }
-  return (printed);
+  return (specifiers);
 }
 
 void		_init_structures(t_fct_tab *fct, t_string *str, char *string)
 {
   str->str = string;
   str->idx = 0;
-  fct->flags = my_strdup("csSidbuxXo");
+  fct->flags = my_strdup("csSidbuxXop");
   fct->idx = 0;
   fct->fct_tab[0] = &_print_char;
   fct->fct_tab[1] = &_print_str;
@@ -40,6 +51,7 @@ void		_init_structures(t_fct_tab *fct, t_string *str, char *string)
   fct->fct_tab[7] = &_convert_hex_lowcase;
   fct->fct_tab[8] = &_convert_hex_upcase;
   fct->fct_tab[9] = &_convert_octal;
+  fct->fct_tab[10] = &_ptr_to_hex;
   return ;
 }
 
@@ -50,18 +62,21 @@ int		my_printf(char *string, ...)
   int		flag_found;
   t_fct_tab	fct;
   t_string	str;
+  char		*specifiers;
 
   _init_structures(&fct, &str, string);
   printed = 0;
   va_start(ap, string);
   str.idx = 0;
+  if (str.str == NULL)
+    return (-1);
   while (str.str[str.idx] != '\0')
     {
       if (str.str[str.idx] != '%')
 	printed += my_putchar(str.str[str.idx]);
       else if (str.str[str.idx] == '%' && str.str[str.idx + 1])
 	{
-	  printed = _find_flag(&str, printed);
+	  specifiers = _find_flag(&str);
 	  flag_found = 0;
 	  fct.idx = 0;
 	  while (fct.flags[fct.idx] && flag_found == 0)
@@ -88,6 +103,7 @@ int		my_printf(char *string, ...)
       str.idx += 1;
     }
   va_end(ap);
+  free(fct.flags);
   return (printed);
 }
 
@@ -98,8 +114,8 @@ int		main(void)
 
   i_printed = 0;
   he_printed = 0;
-  i_printed = my_printf("[%u] foo %Y %c   '%s' [%s] / \"%u\" in hex: %X\n", 87, -4900, "bar", "baz", 0xBB9ACA00, 3147483648);
-  he_printed = printf("[%u] foo %Y %c   '%s' [%s] / \"%u\" in hex: %X\n", 87, -4900, "bar", "baz", 0xBB9ACA00, 3147483648);
+  i_printed = my_printf("%c\n", NULL);
+  he_printed = printf("%c\n", NULL);
   my_putstr("my_printf: ");
   my_put_nbr(i_printed);
   my_putstr("\nprintf:    ");
@@ -108,9 +124,7 @@ int		main(void)
   return (EXIT_SUCCESS);
 }
 
-/* Handle NULL value */
-
-/* Function pointer */
+/* Handle NULL value for EVERY flag */
 
 /* Handle this!! */
 /* i_printed = my_printf("foo %%%%% sbaz qux\n", "bar", "qux"); */
