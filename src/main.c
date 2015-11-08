@@ -5,7 +5,7 @@
 ** Login   <boitea_r@epitech.net>
 ** 
 ** Started on  Mon Nov  2 14:21:07 2015 Ronan Boiteau
-** Last update Sat Nov  7 19:24:42 2015 Ronan Boiteau
+** Last update Sun Nov  8 01:08:28 2015 Ronan Boiteau
 */
 
 #include "my.h"
@@ -13,14 +13,14 @@
 #include "my_printf.h"
 #include <stdio.h> /* REMOVE THAT SHIT!!!! */
 
-int		_char_isletter(char letter)
+static int	_char_isletter(char letter)
 {
   if ((letter >= 'a' && letter <= 'z') || (letter >= 'A' && letter <= 'Z'))
     return (TRUE);
   return (FALSE);
 }
 
-char		*_find_flag(t_string *str)
+static char	*_find_flag(t_string *str)
 {
   char		*specifiers;
 
@@ -35,7 +35,7 @@ char		*_find_flag(t_string *str)
   return (specifiers);
 }
 
-void		_init_structures(t_fct_tab *fct, t_string *str, char *string)
+static void	_init_structures(t_fct_tab *fct, t_string *str, char *string)
 {
   str->str = string;
   str->idx = 0;
@@ -55,7 +55,7 @@ void		_init_structures(t_fct_tab *fct, t_string *str, char *string)
   return ;
 }
 
-int		my_printf(char *string, ...)
+static int	my_printf(char *string, ...)
 {
   va_list	ap;
   unsigned int	printed;
@@ -114,8 +114,8 @@ int		main(void)
 
   i_printed = 0;
   he_printed = 0;
-  i_printed = my_printf("%c\n", NULL);
-  he_printed = printf("%c\n", NULL);
+  i_printed = my_printf("%i\n", 42000000);
+  he_printed = printf("%i\n", 42000000);
   my_putstr("my_printf: ");
   my_put_nbr(i_printed);
   my_putstr("\nprintf:    ");
