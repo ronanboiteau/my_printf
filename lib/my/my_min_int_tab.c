@@ -5,13 +5,13 @@
 ** Login   <boitea_r@epitech.net>
 ** 
 ** Started on  Mon Nov  2 23:01:00 2015 Ronan Boiteau
-** Last update Sun Nov  8 02:08:55 2015 Ronan Boiteau
+** Last update Sun Nov  8 02:31:33 2015 Ronan Boiteau
 */
 
 int		my_min_int_tab(int *tab, unsigned int size)
 {
-  int		lowest;
   unsigned int	index;
+  int		lowest;
 
   index = 0;
   lowest = tab[index];

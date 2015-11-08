@@ -5,11 +5,11 @@
 ** Login   <boitea_r@epitech.net>
 ** 
 ** Started on  Sat Nov  7 18:02:00 2015 Ronan Boiteau
-** Last update Sat Nov  7 19:02:32 2015 Ronan Boiteau
+** Last update Sun Nov  8 02:44:40 2015 Ronan Boiteau
 */
 
 #include "my.h"
-#include "my_printf.h"
+#include "variadic.h"
 
 unsigned int	_ptr_to_hex(unsigned int printed, ...)
 {

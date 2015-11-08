@@ -5,12 +5,14 @@
 ** Login   <boitea_r@epitech.net>
 ** 
 ** Started on  Mon Nov  2 14:21:07 2015 Ronan Boiteau
-** Last update Sun Nov  8 01:20:33 2015 Ronan Boiteau
+** Last update Sun Nov  8 02:43:32 2015 Ronan Boiteau
 */
 
 #include "my.h"
 #include "my_macro.h"
-#include "my_printf.h"
+#include "variadic.h"
+#include "structs.h"
+#include "flags_fct.h"
 #include <stdio.h> /* REMOVE THAT SHIT!!!! */
 
 static int	_char_isletter(char letter)
