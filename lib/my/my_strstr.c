@@ -5,12 +5,12 @@
 ** Login   <boitea_r@epitech.net>
 ** 
 ** Started on  Tue Oct  6 11:28:02 2015 Ronan Boiteau
-** Last update Sun Oct 18 17:09:40 2015 Ronan Boiteau
+** Last update Sun Nov  8 02:03:44 2015 Ronan Boiteau
 */
 
 #include "my.h"
 
-char	*my_strstr(char *str, char *to_find)
+char		*my_strstr(char *str, char *to_find)
 {
   if (my_strlen(to_find) >= my_strlen(str))
     return (NULL);

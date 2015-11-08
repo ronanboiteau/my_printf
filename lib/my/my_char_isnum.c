@@ -5,13 +5,14 @@
 ** Login   <boitea_r@epitech.net>
 ** 
 ** Started on  Sun Oct 18 19:08:36 2015 Ronan Boiteau
-** Last update Sun Oct 18 19:13:29 2015 Ronan Boiteau
+** Last update Sun Nov  8 02:06:19 2015 Ronan Boiteau
 */
 
-int	my_char_isnum(char letter)
+#include "my_macro.h"
+
+int		my_char_isnum(char letter)
 {
   if (!(letter >= '0' && letter <= '9'))
-    return (0);
-  else
-    return (1);
+    return (FALSE);
+  return (TRUE);
 }

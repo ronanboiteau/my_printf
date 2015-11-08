@@ -5,7 +5,7 @@
 ** Login   <boitea_r@epitech.net>
 ** 
 ** Started on  Tue Oct 27 14:04:25 2015 Ronan Boiteau
-** Last update Sat Nov  7 17:49:47 2015 Ronan Boiteau
+** Last update Sat Nov  7 17:45:45 2015 Ronan Boiteau
 */
 
 #ifndef MY_MACRO_H_

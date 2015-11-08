@@ -5,7 +5,7 @@
 ** Login   <boitea_r@epitech.net>
 ** 
 ** Started on  Mon Nov  2 14:21:07 2015 Ronan Boiteau
-** Last update Sun Nov  8 01:08:28 2015 Ronan Boiteau
+** Last update Sun Nov  8 01:20:33 2015 Ronan Boiteau
 */
 
 #include "my.h"
@@ -134,6 +134,7 @@ int		main(void)
 
 /* Makefile compile pas sans dossiers my/ ???? */
 
+/* varargs vraiment utiles dans les fonctions flags ? */
 
 /* Bonus: handle specifiers:
 ** Website: cpp reference printf

@@ -5,19 +5,19 @@
 ** Login   <boitea_r@epitech.net>
 ** 
 ** Started on  Tue Oct  6 13:33:12 2015 Ronan Boiteau
-** Last update Sun Oct 18 17:02:09 2015 Ronan Boiteau
+** Last update Sun Nov  8 01:55:46 2015 Ronan Boiteau
 */
 
-int	my_strcmp(char *s1, char *s2)
+int		my_strcmp(char *str1, char *str2)
 {
-  int	index;
+  unsigned int	index;
 
   index = 0;
-  while (s1[index] != '\0' && s2[index] != '\0')
+  while (str1[index] != '\0' && str2[index] != '\0')
     {
-      if (s1[index] != s2[index])
-	return (s1[index] - s2[index]);
-      index = index + 1;
+      if (str1[index] != str2[index])
+	return (str1[index] - str2[index]);
+      index += 1;
     }
   return (0);
 }

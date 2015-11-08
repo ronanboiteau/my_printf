@@ -5,18 +5,18 @@
 ** Login   <boitea_r@epitech.net>
 ** 
 ** Started on  Mon Oct  5 09:38:55 2015 Ronan Boiteau
-** Last update Sun Oct 18 17:02:27 2015 Ronan Boiteau
+** Last update Sun Nov  8 02:03:28 2015 Ronan Boiteau
 */
 
-char	*my_strncpy(char *dest, char *src, int nbr)
+char		*my_strncpy(char *dest, char *src, unsigned int nbr)
 {
-  int	index;
+  unsigned int	index;
 
   index = 0;
   while (src[index] != '\0' && index < nbr)
     {
       dest[index] = src[index];
-      index = index + 1;
+      index += 1;
     }
   dest[index] = '\0';
   return (dest);

@@ -5,17 +5,17 @@
 ** Login   <boitea_r@epitech.net>
 ** 
 ** Started on  Sun Oct  4 00:18:09 2015 Ronan Boiteau
-** Last update Fri Oct 16 14:47:32 2015 Ronan Boiteau
+** Last update Sun Nov  8 01:27:58 2015 Ronan Boiteau
 */
 
-int	match(char *s1, char *s2)
+int		match(char *str1, char *str2)
 {
-  if ((*s1 == '\0') && (*s2 == '\0'))
+  if ((*str1 == '\0') && (*str2 == '\0'))
     return (1);
-  else if (*s1 == *s2)
-    return (match(s1 + 1, s2 + 1));
-  else if ((*s1 == '*') || (*s2 == '*'))
-    return (match(s1, s2 + 1) || match(s1 + 1, s2));
+  else if (*str1 == *str2)
+    return (match(str1 + 1, str2 + 1));
+  else if ((*str1 == '*') || (*str2 == '*'))
+    return (match(str1, str2 + 1) || match(str1 + 1, str2));
   else
     return (0);
 }

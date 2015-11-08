@@ -5,13 +5,13 @@
 ** Login   <boitea_r@epitech.net>
 ** 
 ** Started on  Sun Oct 18 19:48:15 2015 Ronan Boiteau
-** Last update Sun Nov  8 02:08:28 2015 Ronan Boiteau
+** Last update Sun Nov  8 02:31:29 2015 Ronan Boiteau
 */
 
 int		my_max_int_tab(int *tab, unsigned int size)
 {
-  int		greatest;
   unsigned int	index;
+  int		greatest;
 
   index = 0;
   greatest = tab[index];

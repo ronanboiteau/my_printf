@@ -5,15 +5,15 @@
 ** Login   <boitea_r@epitech.net>
 ** 
 ** Started on  Thu Oct  1 08:58:07 2015 Ronan Boiteau
-** Last update Sun Oct 18 17:02:37 2015 Ronan Boiteau
+** Last update Sun Nov  8 02:04:48 2015 Ronan Boiteau
 */
 
-void	my_swap(int *a, int *b)
+void		my_swap(int *ptr_a, int *ptr_b)
 {
-  int	temp;
+  int		tmp;
 
-  temp = *a;
-  *a = *b;
-  *b = temp;
+  tmp = *ptr_a;
+  *ptr_a = *ptr_b;
+  *ptr_b = tmp;
   return ;
 }

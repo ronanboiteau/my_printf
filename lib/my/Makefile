@@ -1,11 +1,11 @@
-#
+##
 ## Makefile for libmy in /home/boitea_r/c/rendu/Piscine_C_J08/lib/my/src
 ## 
 ## Made by Ronan Boiteau
 ## Login   <boitea_r@epitech.net>
 ## 
 ## Started on  Sat Oct 10 00:52:07 2015 Ronan Boiteau
-## Last update Sat Nov  7 03:36:54 2015 Ronan Boiteau
+## Last update Sun Nov  8 01:41:06 2015 Ronan Boiteau
 ##
 
 INC	= my.h				\
@@ -33,7 +33,7 @@ SRCS	= match.c			\
 	  my_isneg.c			\
 	  my_max_int_tab.c		\
 	  my_min_int_tab.c		\
-	  my_power_rec.c		\
+	  my_power.c			\
 	  my_put_nbr.c			\
 	  my_put_nbr_fd.c		\
 	  my_putchar.c			\
@@ -83,4 +83,4 @@ fclean: clean
 
 re:	fclean all
 
-.PHONY: all headers clean fclean re
+.PHONY: all clean fclean re

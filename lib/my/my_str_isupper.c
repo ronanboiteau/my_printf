@@ -5,19 +5,21 @@
 ** Login   <boitea_r@epitech.net>
 ** 
 ** Started on  Sun Oct 18 18:09:47 2015 Ronan Boiteau
-** Last update Sun Oct 18 18:10:46 2015 Ronan Boiteau
+** Last update Sun Nov  8 02:10:01 2015 Ronan Boiteau
 */
 
-int	my_str_isupper(char *str)
+#include "my_macro.h"
+
+int		my_str_isupper(char *str)
 {
-  int	index;
+  unsigned int	index;
 
   index = 0;
   while (str[index] != '\0')
     {
       if (!(str[index] >= 'A' && str[index] <= 'Z'))
-	return (0);
-      index = index + 1;
+	return (FALSE);
+      index += 1;
     }
-  return (1);
+  return (TRUE);
 }

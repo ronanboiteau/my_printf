@@ -5,23 +5,23 @@
 ** Login   <boitea_r@epitech.net>
 ** 
 ** Started on  Sat Oct 10 22:11:14 2015 Ronan Boiteau
-** Last update Fri Oct 16 14:47:04 2015 Ronan Boiteau
+** Last update Sun Nov  8 02:05:23 2015 Ronan Boiteau
 */
 
-int	nmatch(char *s1, char *s2)
+int	nmatch(char *str1, char *str2)
 {
-  if ((*s1 == '\0') && (*s2 == '\0'))
+  if ((*str1 == '\0') && (*str2 == '\0'))
     return (1);
-  else if ((*s1 != '\0') && (*s2 == '*'))
-    return (nmatch(s1, s2 + 1) + nmatch(s1 + 1, s2));
-  else if ((*s1 == '\0') && (*s2 == '*'))
-    return (nmatch(s1, s2 + 1));
-  else if ((*s2 != '\0') && (*s1 == '*'))
-    return (nmatch(s1 + 1, s2) + nmatch(s1, s2 + 1));
-  else if ((*s2 == '\0') && (*s1 == '*'))
-    return (nmatch(s1 + 1, s2));
-  else if (*s1 == *s2)
-    return (nmatch(s1 + 1, s2 + 1));
+  else if ((*str1 != '\0') && (*str2 == '*'))
+    return (nmatch(str1, str2 + 1) + nmatch(str1 + 1, str2));
+  else if ((*str1 == '\0') && (*str2 == '*'))
+    return (nmatch(str1, str2 + 1));
+  else if ((*str2 != '\0') && (*str1 == '*'))
+    return (nmatch(str1 + 1, str2) + nmatch(str1, str2 + 1));
+  else if ((*str2 == '\0') && (*str1 == '*'))
+    return (nmatch(str1 + 1, str2));
+  else if (*str1 == *str2)
+    return (nmatch(str1 + 1, str2 + 1));
   else
     return (0);
 }

@@ -5,21 +5,23 @@
 ** Login   <boitea_r@epitech.net>
 ** 
 ** Started on  Sun Oct 18 18:25:12 2015 Ronan Boiteau
-** Last update Sun Oct 18 18:54:27 2015 Ronan Boiteau
+** Last update Sun Nov  8 02:07:58 2015 Ronan Boiteau
 */
 
-int	my_is_prime(int nombre)
-{
-  int	index;
+#include "my_macro.h"
 
-  if (nombre <= 1)
-    return (0);
+int		my_is_prime(int nbr)
+{
+  int		index;
+
+  if (nbr <= 1)
+    return (FALSE);
   index = 2;
-  while (index < nombre)
+  while (index < nbr)
     {
-      if (nombre % index == 0)
-	return (0);
-      index = index + 1;
+      if (nbr % index == 0)
+	return (FALSE);
+      index += 1;
     }
-  return (1);
+  return (TRUE);
 }
