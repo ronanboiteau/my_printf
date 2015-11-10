@@ -1,69 +1,78 @@
 ##
-## Makefile for libmy in /home/boitea_r/c/rendu/Piscine_C_J08/lib/my/src
+## Makefile for libmy in /home/boitea_r
 ## 
 ## Made by Ronan Boiteau
 ## Login   <boitea_r@epitech.net>
 ## 
-## Started on  Sat Oct 10 00:52:07 2015 Ronan Boiteau
-## Last update Sun Nov  8 01:41:06 2015 Ronan Boiteau
+## Started on  Tue Nov 10 15:47:58 2015 Ronan Boiteau
+## Last update Tue Nov 10 23:20:39 2015 Ronan Boiteau
 ##
 
-INC	= my.h				\
-	  my_macro.h
-
-IDIR	= ../../include/
+IDIR	= include/
+INC	= $(IDIR)my.h					\
+	  $(IDIR)my_macro.h				\
+	  $(IDIR)my_printf_flags.h			\
+	  $(IDIR)string.h				\
+	  $(IDIR)variadic.h
 
 CC	= gcc
-CFLAGS	+= -Wall -Werror -Wextra -ansi
+CFLAGS	+= -Wall -Werror -Wextra -ansi -I $(IDIR)
 
 RM	= rm -f
 
 DIR	= ../
 NAME	= libmy.a
 
-SRCS	= match.c			\
-	  my_char_isalpha.c		\
-	  my_char_islower.c		\
-	  my_char_isnum.c		\
-	  my_char_isprintable.c		\
-	  my_char_isupper.c		\
-	  my_find_prime_sup.c		\
-	  my_getnbr.c			\
-	  my_is_prime.c			\
-	  my_isneg.c			\
-	  my_max_int_tab.c		\
-	  my_min_int_tab.c		\
-	  my_power.c			\
-	  my_put_nbr.c			\
-	  my_put_nbr_fd.c		\
-	  my_putchar.c			\
-	  my_putchar_fd.c		\
-	  my_putnbr_base.c		\
-	  my_putstr.c			\
-	  my_putstr_fd.c		\
-	  my_revstr.c			\
-	  my_showstr.c			\
-	  my_sort_int_tab.c		\
-	  my_square_root.c		\
-	  my_str_isalpha.c		\
-	  my_str_islower.c		\
-	  my_str_isnum.c		\
-	  my_str_isprintable.c		\
-	  my_str_isupper.c		\
-	  my_strcapitalize.c		\
-	  my_strcat.c			\
-	  my_strcmp.c			\
-	  my_strcpy.c			\
-	  my_strdup.c			\
-	  my_strlen.c			\
-	  my_strlowcase.c		\
-	  my_strncat.c			\
-	  my_strncmp.c			\
-	  my_strncpy.c			\
-	  my_strstr.c			\
-	  my_strupcase.c		\
-	  my_swap.c			\
-	  nmatch.c
+SDIR	= src/
+SRCS	= $(SDIR)match.c				\
+	  $(SDIR)my_char_is/my_char_isalpha.c		\
+	  $(SDIR)my_char_is/my_char_islower.c		\
+	  $(SDIR)my_char_is/my_char_isnum.c		\
+	  $(SDIR)my_char_is/my_char_isprintable.c	\
+	  $(SDIR)my_char_is/my_char_isupper.c		\
+	  $(SDIR)my_find_prime_sup.c			\
+	  $(SDIR)my_getnbr.c				\
+	  $(SDIR)my_is_prime.c				\
+	  $(SDIR)my_isneg.c				\
+	  $(SDIR)my_max_int_tab.c			\
+	  $(SDIR)my_min_int_tab.c			\
+	  $(SDIR)my_printf/flag_char.c			\
+	  $(SDIR)my_printf/flag_int.c			\
+	  $(SDIR)my_printf/flag_ptr.c			\
+	  $(SDIR)my_printf/flag_str.c			\
+	  $(SDIR)my_printf/flag_uint.c			\
+	  $(SDIR)my_printf/main.c			\
+	  $(SDIR)my_power.c				\
+	  $(SDIR)my_puts/my_put_nbr.c			\
+	  $(SDIR)my_puts/my_put_nbr_fd.c		\
+	  $(SDIR)my_puts/my_putchar.c			\
+	  $(SDIR)my_puts/my_putchar_fd.c		\
+	  $(SDIR)my_puts/my_putnbr_base.c		\
+	  $(SDIR)my_puts/my_putstr.c			\
+	  $(SDIR)my_puts/my_putstr_fd.c			\
+	  $(SDIR)my_revstr.c				\
+	  $(SDIR)my_showstr.c				\
+	  $(SDIR)my_sort_int_tab.c			\
+	  $(SDIR)my_square_root.c			\
+	  $(SDIR)my_str_is/my_str_isalpha.c		\
+	  $(SDIR)my_str_is/my_str_islower.c		\
+	  $(SDIR)my_str_is/my_str_isnum.c		\
+	  $(SDIR)my_str_is/my_str_isprintable.c		\
+	  $(SDIR)my_str_is/my_str_isupper.c		\
+	  $(SDIR)my_strcapitalize.c			\
+	  $(SDIR)my_strcat.c				\
+	  $(SDIR)my_strcmp.c				\
+	  $(SDIR)my_strcpy.c				\
+	  $(SDIR)my_strdup.c				\
+	  $(SDIR)my_strlen.c				\
+	  $(SDIR)my_strlowcase.c			\
+	  $(SDIR)my_strncat.c				\
+	  $(SDIR)my_strncmp.c				\
+	  $(SDIR)my_strncpy.c				\
+	  $(SDIR)my_strstr.c				\
+	  $(SDIR)my_strupcase.c				\
+	  $(SDIR)my_swap.c				\
+	  $(SDIR)nmatch.c
 
 OBJS	= $(SRCS:.c=.o)
 
@@ -73,8 +82,9 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	ar -rcs $(NAME) $(OBJS)
 	cp $(NAME) $(DIR)
-	cp $(INC) $(IDIR)
+	cp $(INC) ../../include
 
+CC	= gcc
 clean:
 	$(RM) $(OBJS)
 
