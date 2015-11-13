@@ -5,19 +5,19 @@
 ** Login   <boitea_r@epitech.net>
 ** 
 ** Started on  Tue Nov 10 16:11:13 2015 Ronan Boiteau
-** Last update Tue Nov 10 16:11:13 2015 Ronan Boiteau
+** Last update Thu Nov 12 23:26:31 2015 Ronan Boiteau
 */
 
 #ifndef MY_PRINTF_FLAGS_H_
 # define MY_PRINTF_FLAGS_H_
 
 # include <stdarg.h>
-# define FLAGS_NBR (12)
+# define FLAGS_NBR (13)
 
 typedef struct	s_fct_tab
 {
   char		*flags;
-  unsigned int	idx;
+  int		idx;
   unsigned int	(*fct_tab[FLAGS_NBR])(unsigned int, ...);
 }		t_fct_tab;
 
@@ -32,5 +32,6 @@ unsigned int	_convert_hex_upcase(unsigned int printed, ...);
 unsigned int	_convert_octal(unsigned int printed, ...);
 unsigned int	_ptr_to_hex(unsigned int printed, ...);
 unsigned int	_ptr_printed_chars(unsigned int printed, ...);
+unsigned int	_double_decimal(unsigned int printed, ...);
 
 #endif /* !MY_PRINTF_FLAGS_H_ */

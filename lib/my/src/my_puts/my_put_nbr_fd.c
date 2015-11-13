@@ -5,7 +5,7 @@
 ** Login   <boitea_r@epitech.net>
 ** 
 ** Started on  Sun Oct 11 00:50:12 2015 Ronan Boiteau
-** Last update Tue Nov 10 17:08:49 2015 Ronan Boiteau
+** Last update Thu Nov 12 23:57:00 2015 Ronan Boiteau
 */
 
 #include "my.h"
@@ -27,7 +27,7 @@ unsigned int	my_put_nbr_fd(int fd, int nbr)
       nbr = nbr * -1;
     }
   if (nbr >= 10)
-    { 
+    {
       printed += my_put_nbr_fd(fd, nbr / 10);
       my_putchar_fd(fd, nbr % 10 + '0');
       printed++;

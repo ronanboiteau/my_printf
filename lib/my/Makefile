@@ -5,7 +5,7 @@
 ## Login   <boitea_r@epitech.net>
 ## 
 ## Started on  Tue Nov 10 15:47:58 2015 Ronan Boiteau
-## Last update Tue Nov 10 23:20:39 2015 Ronan Boiteau
+## Last update Fri Nov 13 01:15:36 2015 Ronan Boiteau
 ##
 
 IDIR	= include/
@@ -17,6 +17,7 @@ INC	= $(IDIR)my.h					\
 
 CC	= gcc
 CFLAGS	+= -Wall -Werror -Wextra -ansi -I $(IDIR)
+CFLAGS	+= -O0
 
 RM	= rm -f
 
@@ -37,12 +38,15 @@ SRCS	= $(SDIR)match.c				\
 	  $(SDIR)my_max_int_tab.c			\
 	  $(SDIR)my_min_int_tab.c			\
 	  $(SDIR)my_printf/flag_char.c			\
+	  $(SDIR)my_printf/flag_double.c		\
 	  $(SDIR)my_printf/flag_int.c			\
 	  $(SDIR)my_printf/flag_ptr.c			\
 	  $(SDIR)my_printf/flag_str.c			\
 	  $(SDIR)my_printf/flag_uint.c			\
 	  $(SDIR)my_printf/main.c			\
 	  $(SDIR)my_power.c				\
+	  $(SDIR)my_puts/my_put_double.c		\
+	  $(SDIR)my_puts/my_put_double_fd.c		\
 	  $(SDIR)my_puts/my_put_nbr.c			\
 	  $(SDIR)my_puts/my_put_nbr_fd.c		\
 	  $(SDIR)my_puts/my_putchar.c			\

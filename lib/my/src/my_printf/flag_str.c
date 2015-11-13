@@ -5,7 +5,7 @@
 ** Login   <boitea_r@epitech.net>
 ** 
 ** Started on  Sat Nov  7 04:20:05 2015 Ronan Boiteau
-** Last update Sun Nov  8 02:44:12 2015 Ronan Boiteau
+** Last update Thu Nov 12 23:04:56 2015 Ronan Boiteau
 */
 
 #include "my.h"
@@ -30,6 +30,11 @@ unsigned int	_str_non_printable(unsigned int printed, ...)
   va_start(ap, printed);
   str = va_arg(ap, char *);
   idx = 0;
+  if (str == NULL)
+    {
+      my_putstr("(null)");
+      return (my_strlen("(null)"));
+    }
   while (str[idx] != '\0')
     {
       if (my_char_isprintable(str[idx]))

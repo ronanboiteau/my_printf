@@ -5,7 +5,7 @@
 ** Login   <boitea_r@epitech.net>
 ** 
 ** Started on  Thu Oct  8 10:33:26 2015 Ronan Boiteau
-** Last update Tue Nov 10 17:07:31 2015 Ronan Boiteau
+** Last update Fri Nov 13 01:16:25 2015 Ronan Boiteau
 */
 
 #ifndef MY_H_
@@ -31,6 +31,8 @@ unsigned int	my_putchar(char letter);
 unsigned int	my_putchar_fd(int fd, char letter);
 unsigned int	my_putnbr_base(unsigned int nbr, const char *base);
 unsigned int	my_putnbr_base_ull(unsigned long long nbr, const char *base);
+unsigned int	my_put_double(double nbr);
+unsigned int	my_put_double_fd(int fd, double nbr);
 unsigned int	my_put_nbr(int nbr);
 unsigned int	my_put_nbr_fd(int fd, int nbr);
 unsigned int	my_putstr(const char *str);

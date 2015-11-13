@@ -5,7 +5,7 @@
 ## Login   <boitea_r@epitech.net>
 ## 
 ## Started on  Tue Nov  3 16:47:00 2015 Ronan Boiteau
-## Last update Tue Nov 10 23:14:25 2015 Ronan Boiteau
+## Last update Thu Nov 12 18:17:40 2015 Ronan Boiteau
 ##
 
 NAME	= my_printf
@@ -18,6 +18,7 @@ LDIR	= lib/my/
 
 CC	= gcc
 CFLAGS	+= -I $(IDIR)
+CFLAGS	+= -O0
 
 SRCS	= main.c
 
