@@ -12,16 +12,16 @@ int		main(void)
 
   i_printed = 0;
   he_printed = 0;
-  i_printed = my_printf("foo: %f\n", -2353334.13234);
-  he_printed = printf("foo: %f\n", -2353334.13234);
+  i_printed = my_printf("foo % c% s %n %f % i%%%", 'b', "ar", &chars_me, 42.93, 42);
+  he_printed = printf("foo % c% s %n %f % i%%%", 'b', "ar", &chars_him, 42.93, 42);
   my_putstr("my_printf: ");
   my_put_nbr(i_printed);
-  /* my_putstr(" - "); */
-  /* my_put_nbr(chars_me); */
+  my_putstr(" - ");
+  my_put_nbr(chars_me);
   my_putstr("\nprintf:    ");
   my_put_nbr(he_printed);
-  /* my_putstr(" - "); */
-  /* my_put_nbr(chars_him); */
+  my_putstr(" - ");
+  my_put_nbr(chars_him);
   my_putstr("\n");
   return (EXIT_SUCCESS);
 }

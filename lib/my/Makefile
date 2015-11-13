@@ -5,7 +5,7 @@
 ## Login   <boitea_r@epitech.net>
 ## 
 ## Started on  Tue Nov 10 15:47:58 2015 Ronan Boiteau
-## Last update Fri Nov 13 01:15:36 2015 Ronan Boiteau
+## Last update Fri Nov 13 13:21:46 2015 Ronan Boiteau
 ##
 
 IDIR	= include/
@@ -16,7 +16,8 @@ INC	= $(IDIR)my.h					\
 	  $(IDIR)variadic.h
 
 CC	= gcc
-CFLAGS	+= -Wall -Werror -Wextra -ansi -I $(IDIR)
+CFLAGS	+= -I $(IDIR)
+CFLAGS	+= -Wall -Werror -Wextra -ansi
 CFLAGS	+= -O0
 
 RM	= rm -f

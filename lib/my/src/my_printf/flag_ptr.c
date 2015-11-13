@@ -5,18 +5,16 @@
 ** Login   <boitea_r@epitech.net>
 ** 
 ** Started on  Sat Nov  7 18:02:00 2015 Ronan Boiteau
-** Last update Thu Nov 12 23:10:22 2015 Ronan Boiteau
+** Last update Fri Nov 13 13:53:02 2015 Ronan Boiteau
 */
 
 #include "my.h"
 #include "variadic.h"
 
-unsigned int	_ptr_to_hex(unsigned int printed, ...)
+unsigned int	_ptr_to_hex(unsigned int printed, va_list ap)
 {
-  va_list	ap;
   int		*ptr;
 
-  va_start(ap, printed);
   ptr = va_arg(ap, void *);
   if (ptr == NULL)
     {
@@ -29,12 +27,10 @@ unsigned int	_ptr_to_hex(unsigned int printed, ...)
   return (printed);
 }
 
-unsigned int	_ptr_printed_chars(unsigned int printed, ...)
+unsigned int	_ptr_printed_chars(unsigned int printed, va_list ap)
 {
-  va_list	ap;
   int		*ptr;
 
-  va_start(ap, printed);
   ptr = va_arg(ap, int *);
   *ptr = printed;
   va_end(ap);

@@ -5,29 +5,24 @@
 ** Login   <boitea_r@epitech.net>
 ** 
 ** Started on  Sat Nov  7 04:20:05 2015 Ronan Boiteau
-** Last update Thu Nov 12 23:04:56 2015 Ronan Boiteau
+** Last update Fri Nov 13 13:54:00 2015 Ronan Boiteau
 */
 
 #include "my.h"
 #include "variadic.h"
 
-unsigned int	_print_str(unsigned int printed, ...)
+unsigned int	_print_str(unsigned int printed, va_list ap)
 {
-  va_list	ap;
-
-  va_start(ap, printed);
   printed += my_putstr(va_arg(ap, const char *));
   va_end(ap);
   return (printed);
 }
 
-unsigned int	_str_non_printable(unsigned int printed, ...)
+unsigned int	_str_non_printable(unsigned int printed, va_list ap)
 {
   unsigned int	idx;
   char		*str;
-  va_list	ap;
 
-  va_start(ap, printed);
   str = va_arg(ap, char *);
   idx = 0;
   if (str == NULL)

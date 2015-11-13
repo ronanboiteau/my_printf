@@ -5,7 +5,7 @@
 ** Login   <boitea_r@epitech.net>
 ** 
 ** Started on  Tue Nov 10 15:52:59 2015 Ronan Boiteau
-** Last update Fri Nov 13 01:26:48 2015 Ronan Boiteau
+** Last update Fri Nov 13 19:34:56 2015 Ronan Boiteau
 */
 
 #include "my.h"
@@ -14,14 +14,15 @@
 #include "string.h"
 #include "variadic.h"
 
-static int		_char_isflag(char letter, t_fct_tab *fct)
+static int		_char_isflag(char letter, t_flag *flags)
 {
-  fct->idx = 0;
-  while (fct->idx <= FLAGS_NBR)
+  int			idx;
+
+  while (idx < FLAGS_NBR)
     {
-      if (fct->flags[fct->idx] == letter)
-	return (fct->idx);
-      fct->idx += 1;
+      if (letter == flags[idx].flag_char)
+	return (idx);
+      idx += 1;
     }
   return (-1);
 }
@@ -75,43 +76,49 @@ static const char	*_find_flag(t_string *str,
     }
 }
 
-static void		_init_structures(t_fct_tab *fct,
-					 t_string *str,
-					 const char *format)
+static int		_init_flag(char flag_char,
+				   unsigned int (*fct)(unsigned int, va_list),
+				   t_flag *flags)
+{
+  flags->flag_char = flag_char;
+  flags->fct = fct;
+  return (0);
+}
+
+static void		_init_structures(t_flag *flags,
+					  t_string *str,
+					  const char *format)
 {
   str->str = format;
   str->idx = 0;
-  fct->flags = my_strdup("csSidbuxXopnf%");
-  fct->idx = 0;
-  fct->fct_tab[0] = &_print_char;
-  fct->fct_tab[1] = &_print_str;
-  fct->fct_tab[2] = &_str_non_printable;
-  fct->fct_tab[3] = &_print_int;
-  fct->fct_tab[4] = &_print_int;
-  fct->fct_tab[5] = &_convert_binary;
-  fct->fct_tab[6] = &_convert_decimal;
-  fct->fct_tab[7] = &_convert_hex_lowcase;
-  fct->fct_tab[8] = &_convert_hex_upcase;
-  fct->fct_tab[9] = &_convert_octal;
-  fct->fct_tab[10] = &_ptr_to_hex;
-  fct->fct_tab[11] = &_ptr_printed_chars;
-  fct->fct_tab[12] = &_double_decimal;
-  return ;
+  _init_flag('c', &_print_char, &flags[0]);
+  _init_flag('n', &_ptr_printed_chars, &flags[1]);
+  _init_flag('S', &_str_non_printable, &flags[2]);
+  _init_flag('i', &_print_int, &flags[3]);
+  _init_flag('d', &_print_int, &flags[4]);
+  _init_flag('b', &_convert_binary, &flags[5]);
+  _init_flag('s', &_print_str, &flags[6]);
+  _init_flag('x', &_convert_hex_lowcase, &flags[7]);
+  _init_flag('X', &_convert_hex_upcase, &flags[8]);
+  _init_flag('o', &_convert_octal, &flags[9]);
+  _init_flag('u', &_convert_decimal, &flags[10]);
+  _init_flag('p', &_ptr_to_hex, &flags[11]);
+  _init_flag('f', &_double_decimal, &flags[12]);
 }
 
 int			my_printf(const char *format, ...)
 {
   va_list		ap;
   unsigned int		printed;
-  t_fct_tab		fct;
   t_string		str;
   const char		*specifiers;
+  int			idx;
   int			space;
+  t_flag		flags[13];
 
-  _init_structures(&fct, &str, format);
   printed = 0;
+  _init_structures(flags, &str, format);
   va_start(ap, format);
-  str.idx = 0;
   if (str.str == NULL)
     return (-1);
   while (str.str[str.idx] != '\0')
@@ -125,38 +132,32 @@ int			my_printf(const char *format, ...)
 	  specifiers = _find_flag(&str, &printed);
 	  if (specifiers == NULL)
 	    return (-1);
-	  fct.idx = _char_isflag(str.str[str.idx + 1], &fct);
-	  if (fct.idx == -1)
+	  idx = _char_isflag(str.str[str.idx + 1], flags);
+	  if (idx == -1)
 	    {
 	      while (str.str[str.idx] && str.str[str.idx] != '%')
-		str.idx -= 1;
+	  	str.idx -= 1;
 	      printed += my_putchar('%');
 	      str.idx += 1;
 	      space = FALSE;
 	      while (!_char_isletter(str.str[str.idx]))
-		{
-		  if (str.str[str.idx] == ' ' && space == FALSE)
-		    {
-		      printed += my_putchar(' ');
-		      space = TRUE;
-		    }
-		  str.idx += 1;
-		}
+	  	{
+	  	  if (str.str[str.idx] == ' ' && space == FALSE)
+	  	    {
+	  	      printed += my_putchar(' ');
+	  	      space = TRUE;
+	  	    }
+	  	  str.idx += 1;
+	  	}
 	      printed += my_putchar(str.str[str.idx]);
 	      str.idx -= 1;
 	    }
-	  else if (fct.idx == FLAGS_NBR)
-	    printed += my_putchar('%');
-	  else if (fct.flags[fct.idx] == 'f')
-	    printed = fct.fct_tab[fct.idx](printed, va_arg(ap, double));
 	  else
-	    printed = fct.fct_tab[fct.idx](printed, va_arg(ap, void *));
+	    printed = flags[idx].fct(printed, ap);
 	  str.idx += 1;
 	}
       str.idx += 1;
     }
-  (void)specifiers;
   va_end(ap);
-  free(fct.flags);
   return (printed);
 }
