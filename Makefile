@@ -5,7 +5,7 @@
 ## Login   <boitea_r@epitech.net>
 ## 
 ## Started on  Tue Nov 10 15:47:58 2015 Ronan Boiteau
-## Last update Sat Nov 14 08:27:20 2015 Ronan Boiteau
+## Last update Sat Nov 14 09:14:08 2015 Ronan Boiteau
 ##
 
 IDIR	= include/
@@ -38,6 +38,7 @@ SRCS	= $(SDIR)match.c				\
 	  $(SDIR)my_max_int_tab.c			\
 	  $(SDIR)my_min_int_tab.c			\
 	  $(SDIR)my_printf/compare_char.c		\
+	  $(SDIR)my_printf/find_flag.c			\
 	  $(SDIR)my_printf/flag_char.c			\
 	  $(SDIR)my_printf/flag_double.c		\
 	  $(SDIR)my_printf/flag_int.c			\
