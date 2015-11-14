@@ -5,7 +5,7 @@
 ** Login   <boitea_r@epitech.net>
 ** 
 ** Started on  Sat Nov  7 04:20:05 2015 Ronan Boiteau
-** Last update Fri Nov 13 13:54:00 2015 Ronan Boiteau
+** Last update Fri Nov 13 20:29:11 2015 Ronan Boiteau
 */
 
 #include "my.h"
@@ -14,7 +14,6 @@
 unsigned int	_print_str(unsigned int printed, va_list ap)
 {
   printed += my_putstr(va_arg(ap, const char *));
-  va_end(ap);
   return (printed);
 }
 
@@ -26,10 +25,7 @@ unsigned int	_str_non_printable(unsigned int printed, va_list ap)
   str = va_arg(ap, char *);
   idx = 0;
   if (str == NULL)
-    {
-      my_putstr("(null)");
-      return (my_strlen("(null)"));
-    }
+    return (printed + my_putstr("(null)"));
   while (str[idx] != '\0')
     {
       if (my_char_isprintable(str[idx]))
@@ -45,6 +41,5 @@ unsigned int	_str_non_printable(unsigned int printed, va_list ap)
 	}
       idx = idx + 1;
     }
-  va_end(ap);
   return (printed);
 }

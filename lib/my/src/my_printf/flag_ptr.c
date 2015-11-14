@@ -5,7 +5,7 @@
 ** Login   <boitea_r@epitech.net>
 ** 
 ** Started on  Sat Nov  7 18:02:00 2015 Ronan Boiteau
-** Last update Fri Nov 13 13:53:02 2015 Ronan Boiteau
+** Last update Fri Nov 13 20:20:42 2015 Ronan Boiteau
 */
 
 #include "my.h"
@@ -23,7 +23,6 @@ unsigned int	_ptr_to_hex(unsigned int printed, va_list ap)
     }
   printed += my_putstr("0x");
   printed += my_putnbr_base_ull((unsigned long long)ptr, "0123456789abcdef");
-  va_end(ap);
   return (printed);
 }
 
@@ -33,6 +32,5 @@ unsigned int	_ptr_printed_chars(unsigned int printed, va_list ap)
 
   ptr = va_arg(ap, int *);
   *ptr = printed;
-  va_end(ap);
   return (printed);
 }

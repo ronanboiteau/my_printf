@@ -5,7 +5,7 @@
 ## Login   <boitea_r@epitech.net>
 ## 
 ## Started on  Tue Nov 10 15:47:58 2015 Ronan Boiteau
-## Last update Fri Nov 13 13:21:46 2015 Ronan Boiteau
+## Last update Sat Nov 14 05:35:30 2015 Ronan Boiteau
 ##
 
 IDIR	= include/
@@ -45,16 +45,12 @@ SRCS	= $(SDIR)match.c				\
 	  $(SDIR)my_printf/flag_str.c			\
 	  $(SDIR)my_printf/flag_uint.c			\
 	  $(SDIR)my_printf/main.c			\
+	  $(SDIR)my_printf/my_put_nbr.c			\
+	  $(SDIR)my_printf/my_putchar.c			\
+	  $(SDIR)my_printf/my_putnbr_base.c		\
+	  $(SDIR)my_printf/my_putnbr_double.c		\
+	  $(SDIR)my_printf/my_putstr.c			\
 	  $(SDIR)my_power.c				\
-	  $(SDIR)my_puts/my_put_double.c		\
-	  $(SDIR)my_puts/my_put_double_fd.c		\
-	  $(SDIR)my_puts/my_put_nbr.c			\
-	  $(SDIR)my_puts/my_put_nbr_fd.c		\
-	  $(SDIR)my_puts/my_putchar.c			\
-	  $(SDIR)my_puts/my_putchar_fd.c		\
-	  $(SDIR)my_puts/my_putnbr_base.c		\
-	  $(SDIR)my_puts/my_putstr.c			\
-	  $(SDIR)my_puts/my_putstr_fd.c			\
 	  $(SDIR)my_revstr.c				\
 	  $(SDIR)my_showstr.c				\
 	  $(SDIR)my_sort_int_tab.c			\

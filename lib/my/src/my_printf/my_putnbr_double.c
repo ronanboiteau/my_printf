@@ -1,14 +1,15 @@
 /*
-** my_put_double_fd.c for my_put_double_fd in /home/boitea_r
+** my_putnbr_double.c for my_putnbr_double.c in /home/boitea_r
 ** 
 ** Made by Ronan Boiteau
 ** Login   <boitea_r@epitech.net>
 ** 
-** Started on  Thu Nov 12 23:37:26 2015 Ronan Boiteau
-** Last update Fri Nov 13 01:39:08 2015 Ronan Boiteau
+** Started on  Fri Nov 13 22:12:45 2015 Ronan Boiteau
+** Last update Sat Nov 14 05:14:08 2015 Ronan Boiteau
 */
 
 #include "my.h"
+#include "my_macro.h"
 
 static unsigned int	_put_decimal_part(int fd,
 					  long long int nbr,
@@ -52,7 +53,7 @@ static unsigned int	_put_whole_part(int fd,
   return (printed);
 }
 
-static long long	_count_divisions(double nbr)
+static long long	_divide_nbr(double nbr, int just_count)
 {
   long long		count;
 
@@ -62,17 +63,13 @@ static long long	_count_divisions(double nbr)
       nbr *= 10;
       count += 1;
     }
-  return (count);
+  if (just_count == TRUE)
+    return (count);
+  else
+    return (nbr);
 }
 
-static long long	_divide_nbr(double nbr)
-{
-  while ((long long int)nbr != (double)nbr)
-    nbr *= 10;
-  return (nbr);
-}
-
-unsigned int		my_put_double_fd(int fd, double nbr)
+unsigned int		my_putnbr_double_fd(int fd, double nbr)
 {
   unsigned int		printed;
   unsigned int		printed_tmp;
@@ -81,17 +78,18 @@ unsigned int		my_put_double_fd(int fd, double nbr)
   printed = 0;
   if (nbr < 0)
     {
-      printed += my_putchar_fd(fd, '-');
+      my_putchar_fd(fd, '\b');
+      my_putchar_fd(fd, '-');
       nbr = nbr * -1;
     }
-  printed_tmp = _put_whole_part(fd, (long long)_divide_nbr(nbr),
-				 _count_divisions(nbr));
+  printed_tmp = _put_whole_part(fd, (long long)_divide_nbr(nbr, FALSE),
+				_divide_nbr(nbr, TRUE));
   if (printed_tmp == 0)
     printed_tmp += my_putchar('0');
   printed += printed_tmp;
   printed += my_putchar_fd(fd, '.');
-  printed_tmp = _put_decimal_part(fd, (long long)_divide_nbr(nbr),
-				  _count_divisions(nbr));
+  printed_tmp = _put_decimal_part(fd, (long long)_divide_nbr(nbr, FALSE),
+				  _divide_nbr(nbr, TRUE));
   while (printed_tmp > 6)
     {
       my_putchar('\b');
@@ -105,4 +103,9 @@ unsigned int		my_put_double_fd(int fd, double nbr)
     }
   printed += printed_tmp;
   return (printed);
+}
+
+unsigned int	my_putnbr_double(double nbr)
+{
+  return (my_putnbr_double_fd(1, nbr));
 }

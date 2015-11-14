@@ -5,7 +5,7 @@
 ** Login   <boitea_r@epitech.net>
 ** 
 ** Started on  Sat Nov  7 04:20:32 2015 Ronan Boiteau
-** Last update Fri Nov 13 13:52:29 2015 Ronan Boiteau
+** Last update Sat Nov 14 05:29:55 2015 Ronan Boiteau
 */
 
 #include "my.h"
@@ -13,7 +13,6 @@
 
 unsigned int	_print_int(unsigned int printed, va_list ap)
 {
-  printed += my_put_nbr(va_arg(ap, int));
-  va_end(ap);
+  printed += my_putnbr_printf(va_arg(ap, int));
   return (printed);
 }

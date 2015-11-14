@@ -5,7 +5,7 @@
 ** Login   <boitea_r@epitech.net>
 ** 
 ** Started on  Tue Nov 10 15:52:59 2015 Ronan Boiteau
-** Last update Fri Nov 13 19:34:56 2015 Ronan Boiteau
+** Last update Sat Nov 14 06:35:45 2015 Ronan Boiteau
 */
 
 #include "my.h"
@@ -40,17 +40,24 @@ static int		_char_isletter(char letter)
   if ((letter >= 'a' && letter <= 'z') ||
       (letter >= 'A' && letter <= 'Z') ||
       letter == '/' || letter == '{' ||
-      letter == '\n')
+      letter == '\n' || letter == '%' ||
+      letter == '}' || letter == '=' ||
+      letter == ':' || letter == ',' ||
+      letter == ';' || letter == '[' ||
+      letter == ']' || letter == '(' ||
+      letter == ')' || letter == 'l')
     return (TRUE);
   return (FALSE);
 }
 
 static const char	*_find_flag(t_string *str,
-				    unsigned int *printed)
+				    unsigned int *printed, va_list ap)
 {
   const char		*specifiers;
   int			space;
+  va_list		ap_tmp;
 
+  *ap_tmp = *ap;
   space = FALSE;
   specifiers = "%";
   if (!_char_isletter(str->str[str->idx + 1])
@@ -70,8 +77,17 @@ static const char	*_find_flag(t_string *str,
     {
       if (space == TRUE && (str->str[str->idx + 1] == 'i' ||
 			    str->str[str->idx + 1] == 'd' ||
+			    str->str[str->idx + 1] == 'f' ||
 			    !_char_isletter(str->str[str->idx + 1])))
-	*printed += my_putchar(' ');
+	{
+	  if ((str->str[str->idx + 1] == 'i' || str->str[str->idx + 1] == 'd')
+	      && va_arg(ap_tmp, int) >= 0)
+	    *printed += my_putchar(' ');
+	  else if (str->str[str->idx + 1] == 'f')
+	    *printed += my_putchar(' ');
+	  else if (!_char_isletter(str->str[str->idx + 1]))
+	    *printed += my_putchar(' ');
+	}
       return (specifiers);
     }
 }
@@ -114,7 +130,7 @@ int			my_printf(const char *format, ...)
   const char		*specifiers;
   int			idx;
   int			space;
-  t_flag		flags[13];
+  t_flag		flags[FLAGS_NBR];
 
   printed = 0;
   _init_structures(flags, &str, format);
@@ -129,7 +145,7 @@ int			my_printf(const char *format, ...)
 	return (-1);
       else if (str.str[str.idx] == '%' && str.str[str.idx + 1])
 	{
-	  specifiers = _find_flag(&str, &printed);
+	  specifiers = _find_flag(&str, &printed, ap);
 	  if (specifiers == NULL)
 	    return (-1);
 	  idx = _char_isflag(str.str[str.idx + 1], flags);
@@ -140,7 +156,7 @@ int			my_printf(const char *format, ...)
 	      printed += my_putchar('%');
 	      str.idx += 1;
 	      space = FALSE;
-	      while (!_char_isletter(str.str[str.idx]))
+	      while (str.str[str.idx] && !_char_isletter(str.str[str.idx]))
 	  	{
 	  	  if (str.str[str.idx] == ' ' && space == FALSE)
 	  	    {
@@ -149,7 +165,8 @@ int			my_printf(const char *format, ...)
 	  	    }
 	  	  str.idx += 1;
 	  	}
-	      printed += my_putchar(str.str[str.idx]);
+	      if (str.str[str.idx] && str.str[str.idx] != '%')
+		printed += my_putchar(str.str[str.idx]);
 	      str.idx -= 1;
 	    }
 	  else
