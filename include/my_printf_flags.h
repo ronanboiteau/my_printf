@@ -5,13 +5,14 @@
 ** Login   <boitea_r@epitech.net>
 ** 
 ** Started on  Tue Nov 10 16:11:13 2015 Ronan Boiteau
-** Last update Fri Nov 13 17:02:23 2015 Ronan Boiteau
+** Last update Sat Nov 14 08:26:59 2015 Ronan Boiteau
 */
 
 #ifndef MY_PRINTF_FLAGS_H_
 # define MY_PRINTF_FLAGS_H_
 
 # include <stdarg.h>
+# include "string.h"
 
 # define FLAGS_NBR (13)
 
@@ -21,6 +22,8 @@ typedef struct	s_flag
   unsigned int	(*fct)(unsigned int printed, va_list ap);
 }		t_flag;
 
+int		_char_isflag(char letter, t_flag *flags);
+int		_char_isletter(char letter);
 unsigned int	_print_char(unsigned int printed, va_list ap);
 unsigned int	_print_str(unsigned int printed, va_list ap);
 unsigned int	_str_non_printable(unsigned int printed, va_list ap);
@@ -33,5 +36,11 @@ unsigned int	_convert_octal(unsigned int printed, va_list ap);
 unsigned int	_ptr_to_hex(unsigned int printed, va_list ap);
 unsigned int	_ptr_printed_chars(unsigned int printed, va_list ap);
 unsigned int	_double_decimal(unsigned int printed, va_list ap);
+int			_init_flag(char flag_char,
+				   unsigned int (*fct)(unsigned int, va_list),
+				   t_flag *flags);
+void			_init_structures(t_flag *flags,
+					 t_string *str,
+					 const char *format);
 
 #endif /* !MY_PRINTF_FLAGS_H_ */

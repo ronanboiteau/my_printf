@@ -5,7 +5,7 @@
 ** Login   <boitea_r@epitech.net>
 ** 
 ** Started on  Tue Oct  6 09:33:53 2015 Ronan Boiteau
-** Last update Sat Nov 14 05:13:33 2015 Ronan Boiteau
+** Last update Sat Nov 14 07:52:53 2015 Ronan Boiteau
 */
 
 #include "my.h"
@@ -41,31 +41,6 @@ unsigned int	my_put_nbr(int nbr)
 {
   return (my_put_nbr_fd(1, nbr));
 }
-
-/* unsigned int	my_putnbr_printf(int nbr, int space) */
-/* { */
-/*   unsigned int	printed; */
-
-/*   printed = 0; */
-/*   if (nbr == -2147483648) */
-/*     { */
-/*       if (space == TRUE) */
-/* 	printed += my_putstr("\b-2147483648") - 2; */
-/*       else */
-/* 	printed += my_putstr("-2147483648"); */
-/*       return (printed); */
-/*     } */
-/*   if (nbr < 0) */
-/*     { */
-/*       if (space == TRUE) */
-/* 	my_putstr("\b-"); */
-/*       else */
-/* 	printed += my_putchar('-'); */
-/*       nbr = nbr * -1; */
-/*     } */
-/*   printed += my_put_nbr(nbr); */
-/*   return (printed); */
-/* } */
 
 unsigned int	my_putnbr_printf(int nbr)
 {
