@@ -1,48 +1,93 @@
 ##
-## Makefile for my_printf in /home/boitea_r
+## Makefile for libmy in /home/boitea_r
 ## 
 ## Made by Ronan Boiteau
 ## Login   <boitea_r@epitech.net>
 ## 
-## Started on  Tue Nov  3 16:47:00 2015 Ronan Boiteau
-## Last update Thu Nov 12 18:17:40 2015 Ronan Boiteau
+## Started on  Tue Nov 10 15:47:58 2015 Ronan Boiteau
+## Last update Sat Nov 14 06:55:12 2015 Ronan Boiteau
 ##
 
-NAME	= my_printf
-
 IDIR	= include/
-
-LIB	= libmy.a
-LNAME	= my
-LDIR	= lib/my/
+INC	= $(IDIR)my.h					\
+	  $(IDIR)my_macro.h				\
+	  $(IDIR)my_printf_flags.h			\
+	  $(IDIR)string.h				\
+	  $(IDIR)variadic.h
 
 CC	= gcc
 CFLAGS	+= -I $(IDIR)
+CFLAGS	+= -Wall -Werror -Wextra -ansi
 CFLAGS	+= -O0
-
-SRCS	= main.c
-
-OBJS	= $(SRCS:.c=.o)
 
 RM	= rm -f
 
+NAME	= libmy.a
 
-all: $(LIB) $(NAME)
+SDIR	= src/
+SRCS	= $(SDIR)match.c				\
+	  $(SDIR)my_char_is/my_char_isalpha.c		\
+	  $(SDIR)my_char_is/my_char_islower.c		\
+	  $(SDIR)my_char_is/my_char_isnum.c		\
+	  $(SDIR)my_char_is/my_char_isprintable.c	\
+	  $(SDIR)my_char_is/my_char_isupper.c		\
+	  $(SDIR)my_find_prime_sup.c			\
+	  $(SDIR)my_getnbr.c				\
+	  $(SDIR)my_is_prime.c				\
+	  $(SDIR)my_isneg.c				\
+	  $(SDIR)my_max_int_tab.c			\
+	  $(SDIR)my_min_int_tab.c			\
+	  $(SDIR)my_printf/flag_char.c			\
+	  $(SDIR)my_printf/flag_double.c		\
+	  $(SDIR)my_printf/flag_int.c			\
+	  $(SDIR)my_printf/flag_ptr.c			\
+	  $(SDIR)my_printf/flag_str.c			\
+	  $(SDIR)my_printf/flag_uint.c			\
+	  $(SDIR)my_printf/my_printf.c			\
+	  $(SDIR)my_printf/my_put_nbr.c			\
+	  $(SDIR)my_printf/my_putchar.c			\
+	  $(SDIR)my_printf/my_putnbr_base.c		\
+	  $(SDIR)my_printf/my_putnbr_double.c		\
+	  $(SDIR)my_printf/my_putstr.c			\
+	  $(SDIR)my_power.c				\
+	  $(SDIR)my_revstr.c				\
+	  $(SDIR)my_showstr.c				\
+	  $(SDIR)my_sort_int_tab.c			\
+	  $(SDIR)my_square_root.c			\
+	  $(SDIR)my_str_is/my_str_isalpha.c		\
+	  $(SDIR)my_str_is/my_str_islower.c		\
+	  $(SDIR)my_str_is/my_str_isnum.c		\
+	  $(SDIR)my_str_is/my_str_isprintable.c		\
+	  $(SDIR)my_str_is/my_str_isupper.c		\
+	  $(SDIR)my_strcapitalize.c			\
+	  $(SDIR)my_strcat.c				\
+	  $(SDIR)my_strcmp.c				\
+	  $(SDIR)my_strcpy.c				\
+	  $(SDIR)my_strdup.c				\
+	  $(SDIR)my_strlen.c				\
+	  $(SDIR)my_strlowcase.c			\
+	  $(SDIR)my_strncat.c				\
+	  $(SDIR)my_strncmp.c				\
+	  $(SDIR)my_strncpy.c				\
+	  $(SDIR)my_strstr.c				\
+	  $(SDIR)my_strupcase.c				\
+	  $(SDIR)my_swap.c				\
+	  $(SDIR)nmatch.c
 
-$(LIB):
-	cd $(LDIR) && $(MAKE)
+OBJS	= $(SRCS:.c=.o)
+
+
+all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) -o $(NAME) $(OBJS) -L lib -l $(LNAME)
+	ar -rcs $(NAME) $(OBJS)
 
 clean:
 	$(RM) $(OBJS)
-	cd $(LDIR) && $(MAKE) clean
 
 fclean: clean
 	$(RM) $(NAME)
-	cd $(LDIR) && $(MAKE) fclean
 
-re: fclean all
+re:	fclean all
 
 .PHONY: all clean fclean re
