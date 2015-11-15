@@ -5,7 +5,7 @@
 ** Login   <boitea_r@epitech.net>
 ** 
 ** Started on  Sat Nov 14 09:13:48 2015 Ronan Boiteau
-** Last update Sat Nov 14 09:28:58 2015 Ronan Boiteau
+** Last update Sun Nov 15 22:11:35 2015 Ronan Boiteau
 */
 
 #include "my.h"
@@ -30,7 +30,7 @@ static unsigned int	_add_extra_spaces(t_string *str,
 					  unsigned int *printed,
 					  va_list ap)
 {
-  va_list ap_tmp;
+  va_list		ap_tmp;
 
   *ap_tmp = *ap;
   if (space == TRUE && (str->str[str->idx + 1] == 'i' ||
