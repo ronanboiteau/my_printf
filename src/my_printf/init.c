@@ -5,7 +5,7 @@
 ** Login   <boitea_r@epitech.net>
 ** 
 ** Started on  Sat Nov 14 08:25:02 2015 Ronan Boiteau
-** Last update Sat Nov 14 08:28:02 2015 Ronan Boiteau
+** Last update Mon Nov 16 23:25:20 2015 Ronan Boiteau
 */
 
 #include "my_printf_flags.h"
@@ -21,8 +21,8 @@ int			_init_flag(char flag_char,
 }
 
 void			_init_structures(t_flag *flags,
-					  t_string *str,
-					  const char *format)
+					 t_string *str,
+					 const char *format)
 {
   str->str = format;
   str->idx = 0;
@@ -38,5 +38,4 @@ void			_init_structures(t_flag *flags,
   _init_flag('o', &_convert_octal, &flags[9]);
   _init_flag('u', &_convert_decimal, &flags[10]);
   _init_flag('p', &_ptr_to_hex, &flags[11]);
-  _init_flag('f', &_double_decimal, &flags[12]);
 }
