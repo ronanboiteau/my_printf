@@ -1,18 +1,9 @@
-/*
-** my_put_nbr.c for my_put_nbr.c in /home/boitea_r
-** 
-** Made by Ronan Boiteau
-** Login   <boitea_r@epitech.net>
-** 
-** Started on  Tue Oct  6 09:33:53 2015 Ronan Boiteau
-** Last update Sat Nov 14 07:52:53 2015 Ronan Boiteau
-*/
-
 #include "my.h"
+#include "printf_puts.h"
 
-unsigned int	my_put_nbr_fd(int fd, int nbr)
+t_uint		my_put_nbr_fd(int fd, int nbr)
 {
-  unsigned int	printed;
+  t_uint	printed;
 
   printed = 0;
   if (nbr == -2147483648)
@@ -37,26 +28,21 @@ unsigned int	my_put_nbr_fd(int fd, int nbr)
   return (printed);
 }
 
-unsigned int	my_put_nbr(int nbr)
+t_uint		my_putnbr_printf(int fd, int nbr)
 {
-  return (my_put_nbr_fd(1, nbr));
-}
-
-unsigned int	my_putnbr_printf(int nbr)
-{
-  unsigned int	printed;
+  t_uint	printed;
 
   printed = 0;
   if (nbr == -2147483648)
     {
-      printed += my_putstr("-2147483648");
+      printed += my_putstr_fd(fd, "-2147483648");
       return (printed);
     }
   if (nbr < 0)
     {
-      printed += my_putchar('-');
+      printed += my_putchar_fd(fd, '-');
       nbr = nbr * -1;
     }
-  printed += my_put_nbr(nbr);
+  printed += my_put_nbr_fd(fd, nbr);
   return (printed);
 }

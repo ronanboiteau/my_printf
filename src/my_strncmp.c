@@ -1,25 +1,20 @@
-/*
-** my_strncmp.c for my_strncmp.c in /home/boitea_r
-** 
-** Made by Ronan Boiteau
-** Login   <boitea_r@epitech.net>
-** 
-** Started on  Tue Oct  6 14:18:14 2015 Ronan Boiteau
-** Last update Tue Nov 10 17:05:31 2015 Ronan Boiteau
-*/
+#include <stdlib.h>
+#include "my.h"
 
-int		my_strncmp(const char *str1,
-			   const char *str2,
-			   unsigned int nbr)
+int		my_strncmp(const char *str1, const char *str2, t_uint nbr)
 {
-  unsigned int	idx;
+  t_uint	idx;
 
+  if (str1 == NULL || str2 == NULL)
+    return (-1);
   idx = 0;
-  while (str1[idx] != '\0' && str2[idx] != '\0' && idx < nbr)
+  while (str1[idx] && str2[idx] && idx < nbr)
     {
       if (str1[idx] != str2[idx])
 	return (str1[idx] - str2[idx]);
       idx += 1;
     }
+  if (idx < nbr)
+    return (-1);
   return (0);
 }

@@ -1,19 +1,11 @@
-/*
-** my_strncpy.c for my_strncpy in /home/boitea_r
-** 
-** Made by Ronan Boiteau
-** Login   <boitea_r@epitech.net>
-** 
-** Started on  Mon Oct  5 09:38:55 2015 Ronan Boiteau
-** Last update Tue Nov 10 17:06:18 2015 Ronan Boiteau
-*/
+#include "my.h"
 
-char		*my_strncpy(char *dest, const char *src, unsigned int nbr)
+char		*my_strncpy(char *dest, const char *src, t_uint nbr)
 {
-  unsigned int	idx;
+  t_uint	idx;
 
   idx = 0;
-  while (src[idx] != '\0' && idx < nbr)
+  while (idx < nbr && src[idx])
     {
       dest[idx] = src[idx];
       idx += 1;

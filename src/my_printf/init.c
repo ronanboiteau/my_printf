@@ -1,28 +1,19 @@
-/*
-** init.c for my_printf in /home/boitea_r
-** 
-** Made by Ronan Boiteau
-** Login   <boitea_r@epitech.net>
-** 
-** Started on  Sat Nov 14 08:25:02 2015 Ronan Boiteau
-** Last update Mon Nov 16 23:25:20 2015 Ronan Boiteau
-*/
+#include "printf_flags.h"
 
-#include "my_printf_flags.h"
-#include "variadic.h"
-
-int			_init_flag(char flag_char,
-				   unsigned int (*fct)(unsigned int, va_list),
-				   t_flag *flags)
+int		_init_flag(char flag_char,
+			   t_uint (*fct)(int fd,
+				       t_uint printed,
+				       va_list ap),
+			   t_flag *flags)
 {
   flags->flag_char = flag_char;
   flags->fct = fct;
   return (0);
 }
 
-void			_init_structures(t_flag *flags,
-					 t_string *str,
-					 const char *format)
+void		_init_structures(t_flag *flags,
+				 t_cstring *str,
+				 const char *format)
 {
   str->str = format;
   str->idx = 0;
@@ -38,4 +29,5 @@ void			_init_structures(t_flag *flags,
   _init_flag('o', &_convert_octal, &flags[9]);
   _init_flag('u', &_convert_decimal, &flags[10]);
   _init_flag('p', &_ptr_to_hex, &flags[11]);
+  return ;
 }
