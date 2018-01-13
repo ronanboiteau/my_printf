@@ -19,11 +19,11 @@ Navigate to the root of the repository from your Terminal and run `make` to buil
 
  - Copy this repository inside a folder in your project directory.
  - Include the `my.h` header file in your `.c` files where you want to use `my_printf()`:
-```c_cpp
+```cpp
 #include "my.h"
 ```
  - If you put this repository in a folder named `lib/`, run this command to compile a `main.c` file using the library:
-```
+```cpp
 gcc main.c -L lib/ -l my -I lib/include/
 ```
 
