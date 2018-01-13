@@ -23,7 +23,7 @@ Navigate to the root of the repository from your Terminal and run `make` to buil
 #include "my.h"
 ```
  - If you put this repository in a folder named `lib/`, run this command to compile a `main.c` file using the library:
-```cpp
+```
 gcc main.c -L lib/ -l my -I lib/include/
 ```
 
