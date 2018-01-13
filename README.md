@@ -15,12 +15,14 @@ Recoding libc's `printf()` function.
 
 Navigate to the root of the repository from your Terminal and run `make` to build the `libmy.a` static library.
 
-### Use my_printf
+### Use my_printf()
 
  - Copy this repository inside a folder in your project directory.
- - Include the `my.h` header file in your `.c` files where you want to use `my_printf()`.
+ - Include the `my.h` header file in your `.c` files where you want to use `my_printf()`:
+```c_cpp
+#include "my.h"
+```
  - If you put this repository in a folder named `lib/`, run this command to compile a `main.c` file using the library:
- 
 ```
 gcc main.c -L lib/ -l my -I lib/include/
 ```
