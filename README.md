@@ -2,7 +2,7 @@
 
 {EPITECH.} first year project.
 
-Recoding libc's `printf()` function.
+Recoding libc's [`printf()`](https://linux.die.net/man/3/printf) & [`dprintf()`](https://linux.die.net/man/3/dprintf) functions, as well as a `my_exit()` function.
 
 ## Requirements
 
