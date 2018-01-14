@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <unistd.h>
+#include "printf_misc.h"
 #include "my.h"
 
 t_uint		my_putstr_fd(int fd, const char *str)

@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include "my.h"
 #include "printf_flags.h"
+#include "printf_misc.h"
 #include "printf_puts.h"
 
 t_uint		_ptr_to_hex(int fd, t_uint printed, va_list ap)
