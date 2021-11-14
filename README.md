@@ -45,7 +45,3 @@ This function has the same behavior as libc's [`dprintf()`](https://linux.die.ne
 void    my_exit(int exit_code, const char *format, ...);
 ```
 This function has the same behavior as libc's [`printf()`](https://linux.die.net/man/3/printf). Except it outputs on [`stderr`](https://en.wikipedia.org/wiki/Standard_streams#Standard_error_(stderr)) & it takes an [exit status](https://en.wikipedia.org/wiki/Exit_status#C_language) as first argument. After `my_exit()` is done printing, it will call libc's [`exit()`](https://linux.die.net/man/3/exit) to quit your program with the exit status you gave as an argument.
-
-## Author
-
-* **Ronan Boiteau** ([GitHub](https://github.com/ronanboiteau) / [LinkedIn](https://www.linkedin.com/in/ronanboiteau/))
